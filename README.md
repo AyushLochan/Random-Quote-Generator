@@ -35,6 +35,10 @@ Random-Quote-Generator/
 1. Clone the repository:
    ```bash
    git clone https://github.com/ayushlochan/Random-Quote-Generator.git
+   
+2. Open index.html in your browser to view it locally.
+
+3. Or just visit the Live Demo!
 
 🧠 Quote Sources
 All quotes are hardcoded in script.js. Most are attributed to Indian visionaries:
