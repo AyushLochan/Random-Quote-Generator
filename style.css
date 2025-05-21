@@ -26,6 +26,15 @@ h1 {
   color: #2c3e50;
 }
 
+select {
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #b0bec5;
+  font-size: 14px;
+  cursor: pointer;
+}
+
 .quote-container {
   margin: 20px 0;
 }
@@ -43,8 +52,16 @@ h1 {
   color: #607d8b;
 }
 
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
 button {
-  padding: 10px 25px;
+  padding: 10px 18px;
   background-color: #b2ebf2;
   color: #006064;
   border: none;
@@ -66,4 +83,22 @@ button:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+#copy-status {
+  display: none;
+  font-size: 13px;
+  color: green;
+  margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+  .quote-box {
+    width: 90%;
+    padding: 20px;
+  }
+
+  button, select {
+    width: 100%;
+  }
 }
