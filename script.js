@@ -38,8 +38,15 @@ const quotes = [
 ];
 
 function generateQuote() {
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  const quoteObj = quotes[randomIndex];
+  const category = document.getElementById("category").value;
+  let filteredQuotes = quotes;
+
+  if (category !== "all") {
+    filteredQuotes = quotes.filter(q => q.author.toLowerCase().includes(category));
+  }
+
+  const randomIndex = Math.floor(Math.random() * filteredQuotes.length);
+  const quoteObj = filteredQuotes[randomIndex];
 
   const quoteEl = document.getElementById("quote");
   const authorEl = document.getElementById("author");
@@ -53,4 +60,24 @@ function generateQuote() {
   authorEl.textContent = `— ${quoteObj.author}`;
   quoteEl.classList.add("fade-in");
   authorEl.classList.add("fade-in");
+}
+
+function copyQuote() {
+  const quote = document.getElementById("quote").textContent;
+  const author = document.getElementById("author").textContent;
+  const fullText = `${quote} ${author}`;
+  
+  navigator.clipboard.writeText(fullText).then(() => {
+    const status = document.getElementById("copy-status");
+    status.style.display = "inline";
+    setTimeout(() => status.style.display = "none", 2000);
+  });
+}
+
+function shareOnTwitter() {
+  const quote = document.getElementById("quote").textContent;
+  const author = document.getElementById("author").textContent;
+  const tweet = `${quote} ${author}`;
+  const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweet)}`;
+  window.open(url, "_blank");
 }
