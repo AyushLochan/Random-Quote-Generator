@@ -7,14 +7,29 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  
+
   <div class="quote-box">
     <h1>💬 Quote of the Moment</h1>
+
+    <select id="category" onchange="generateQuote()" aria-label="Select quote category">
+      <option value="all">All</option>
+      <option value="gandhi">Mahatma Gandhi</option>
+      <option value="vivekananda">Swami Vivekananda</option>
+      <option value="kalam">A.P.J. Abdul Kalam</option>
+    </select>
+
     <div class="quote-container">
       <p id="quote" class="fade-in">"Click below to get inspired!"</p>
       <span id="author" class="fade-in">— Unknown</span>
     </div>
-    <button onclick="generateQuote()" aria-label="Generate a new quote">🔄 New Quote</button>
+
+    <div class="buttons">
+      <button onclick="generateQuote()">🔄 New Quote</button>
+      <button onclick="copyQuote()">📋 Copy</button>
+      <button onclick="shareOnTwitter()">🐦 Share</button>
+    </div>
+
+    <span id="copy-status">Copied!</span>
   </div>
 
   <script src="script.js"></script>
